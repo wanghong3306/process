@@ -1,0 +1,5 @@
+/vendor/
+/test/
+*.phar
+phpunit.xml
+.idea

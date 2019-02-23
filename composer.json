@@ -1,0 +1,30 @@
+{
+    "name": "wanghong3306/process",
+    "description": "php tool",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wang",
+            "email": "844659503@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "wang\\": ""
+        }
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "symfony/process": "~2.7|~3.0|~4.0"
+    },
+    "require-dev": {
+    },
+    "minimum-stability": "dev",
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.laravel-china.org"
+        }
+    }
+}
