@@ -47,7 +47,7 @@ __HALT_COMPILER();
 STUB;
 
 $phar->setStub($stub);
-$phar->compressFiles(Phar::BZ2);
+$phar->compressFiles(Phar::GZ);
 $phar->stopBuffering();
 unset($phar);
 
