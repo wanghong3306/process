@@ -7,7 +7,7 @@ $opt = getopt('v::');
 chdir(ROOT);
 exec('composer install --no-dev');
 
-$pharName = "process.phar";
+$pharName = "main.phar";
 $pharFile = ROOT . '/' . $pharName;
 
 if (file_exists($pharFile)) {
@@ -33,21 +33,21 @@ foreach ($iterator as $fileInfo) {
     echo "Add file: " . $file . "\n";
     $phar->addFile($fileInfo->getRealPath(), $file);
 }
-$content = file_get_contents(ROOT . '/bin/process');
+$content = file_get_contents(ROOT . '/bin/main');
 $content = str_replace("#!/usr/bin/env php\n", '', $content);
 $content = str_replace('__FILE__', 'str_replace("phar://", "", Phar::running())', $content);
-$phar->addFromString('bin/process', $content);
+$phar->addFromString('bin/main', $content);
 
 $stub = <<<STUB
 #!/usr/bin/env php
 <?php
 Phar::mapPhar('{$pharName}');
-require 'phar://{$pharName}/bin/process';
+require 'phar://{$pharName}/bin/main';
 __HALT_COMPILER();
 STUB;
 
 $phar->setStub($stub);
-$phar->compressFiles(Phar::GZ);
+$phar->compressFiles(Phar::BZ2);
 $phar->stopBuffering();
 unset($phar);
 
