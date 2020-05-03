@@ -14,8 +14,8 @@ if (file_exists($pharFile)) {
     unlink($pharFile);
 }
 
-$phar = new \Phar($pharFile, 0, $pharName);
-$phar->setSignatureAlgorithm(\Phar::SHA1);
+$phar = new Phar($pharFile, 0, $pharName);
+$phar->setSignatureAlgorithm(Phar::SHA1);
 
 $phar->startBuffering();
 
